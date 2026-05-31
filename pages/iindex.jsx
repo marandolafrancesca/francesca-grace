@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 
 /* ═══════════════════════════════════════════════════════════════
    FRANCESCA GRACE — Luxury Mediterranean Editorial Portfolio
@@ -180,11 +181,11 @@ function PhoneCard({title,location,url,index,bg}){
           <div style={{width:0,height:0,borderTop:"7px solid transparent",borderBottom:"7px solid transparent",borderLeft:"12px solid rgba(255,255,255,0.85)",marginLeft:3}}/>
         </div>
         <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"16px 14px 18px"}}>
-          <div style={{fontSize:8,color:"rgba(245,240,232,0.7)",letterSpacing:"0.22em",textTransform:"uppercase",marginBottom:6,fontFamily:"inherit"}}>{location}</div>
+          <div style={{fontSize:8,color:"rgba(255,255,255,1.0)",letterSpacing:"0.22em",textTransform:"uppercase",marginBottom:6,fontFamily:"inherit"}}>{location}</div>
           <div style={{fontSize:12,color:"#1A6B7A",fontWeight:400,lineHeight:1.4,fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic"}}>{title}</div>
           <div style={{display:"flex",alignItems:"center",gap:6,marginTop:9}}>
             <div style={{width:18,height:18,borderRadius:"50%",background:"rgba(61,99,112,0.8)",border:"1px solid rgba(255,255,255,0.35)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:7,color:"#fff",fontWeight:600,letterSpacing:"0.01em"}}>F</div>
-            <span style={{fontSize:8,color:"rgba(245,240,232,0.7)",letterSpacing:"0.08em"}}>@frvncesca</span>
+            <span style={{fontSize:8,color:"rgba(255,255,255,1.0)",letterSpacing:"0.08em"}}>@frvncesca</span>
           </div>
         </div>
       </div>
@@ -205,7 +206,7 @@ function FAQ({q,a}){
         <span style={{fontSize:18,color:"#6BB8C4",transform:open?"rotate(45deg)":"none",transition:"transform 0.3s cubic-bezier(.16,1,.3,1)",flexShrink:0,fontWeight:300}}>+</span>
       </button>
       <div style={{overflow:"hidden",maxHeight:open?280:0,transition:"max-height 0.5s cubic-bezier(.16,1,.3,1)",paddingBottom:open?20:0}}>
-        <p style={{fontSize:17,color:"#222222",lineHeight:1.95,margin:0,letterSpacing:"0.01em"}}>{a}</p>
+        <p style={{fontSize:18,color:"#222222",lineHeight:1.95,margin:0,letterSpacing:"0.01em"}}>{a}</p>
       </div>
     </div>
   );
@@ -282,7 +283,7 @@ function HomePage({setPage}){
               fontFamily:"'Cormorant Garamond',Georgia,serif",
               fontStyle:"italic",
               fontSize:"clamp(16px,2vw,20px)",
-              color:"rgba(245,240,232,0.65)",
+              color:"rgba(255,255,255,0.95)",
               lineHeight:1.85,
               margin:0,
               letterSpacing:"0.02em",
@@ -377,7 +378,7 @@ function HomePage({setPage}){
           opacity:0,animation:"fadeIn 1.2s ease 1.4s forwards",
           textAlign:"right",
         }}>
-          <div style={{fontSize:9,letterSpacing:"0.3em",textTransform:"uppercase",color:"rgba(245,240,232,0.35)",lineHeight:2}}>
+          <div style={{fontSize:9,letterSpacing:"0.3em",textTransform:"uppercase",color:"rgba(255,255,255,0.6)",lineHeight:2}}>
             Rhode Island<br/>Boston · New York City<br/>Miami
           </div>
         </div>
@@ -385,7 +386,7 @@ function HomePage({setPage}){
         {/* Scroll indicator */}
         <div style={{position:"absolute",bottom:40,left:"50%",transform:"translateX(-50%)",opacity:0,animation:"fadeIn 1s ease 1.8s forwards",display:"flex",flexDirection:"column",alignItems:"center",gap:8}}>
           <div style={{width:1,height:48,background:"linear-gradient(to bottom,transparent,rgba(26,107,122,0.3))"}}/>
-          <span style={{fontSize:8,letterSpacing:"0.3em",color:"rgba(26,107,122,0.4)",textTransform:"uppercase"}}>Scroll</span>
+          <span style={{fontSize:8,letterSpacing:"0.3em",color:"#0A5A6A",textTransform:"uppercase",fontSize:11}}>Scroll</span>
         </div>
       </section>
 
@@ -404,10 +405,10 @@ function HomePage({setPage}){
               <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(36px,4.5vw,58px)",color:"#1A6B7A",lineHeight:1.1,letterSpacing:"0.04em",margin:"0 0 32px"}}>
                 I find the places<br/>worth talking about.
               </h2>
-              <p style={{fontSize:18,color:"#222222",lineHeight:1.95,margin:"0 0 20px",letterSpacing:"0.01em",opacity:0.85}}>
+              <p style={{fontSize:19,color:"#222222",lineHeight:1.95,margin:"0 0 20px",letterSpacing:"0.01em",opacity:0.85}}>
                 I'm Francesca Grace — a food and travel creator based in Rhode Island, covering the restaurants, hotels, cafés, and hidden gems across New England, New York City, and Miami that deserve to be discovered.
               </p>
-              <p style={{fontSize:18,color:"#222222",lineHeight:1.95,margin:"0 0 40px",letterSpacing:"0.01em",opacity:0.85}}>
+              <p style={{fontSize:19,color:"#222222",lineHeight:1.95,margin:"0 0 40px",letterSpacing:"0.01em",opacity:0.85}}>
                 Every piece of content I make is cinematic, honest, and crafted to make the viewer feel like they're already there. I only work with places I genuinely love — which is why my audience responds the way they do.
               </p>
               <button onClick={()=>setPage("About")} style={{
@@ -434,9 +435,9 @@ function HomePage({setPage}){
                 {v:"18+",  l:"Brand Partnerships",sub:"and growing"},
               ].map((s,i)=>(
                 <div key={i} style={{padding:"20px 0",borderBottom:"1px solid rgba(107,98,88,0.15)",display:"grid",gridTemplateColumns:"100px 1fr",gap:16,alignItems:"center"}}>
-                  <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(28px,3.5vw,40px)",color:"#1E8A9A",fontWeight:800,letterSpacing:"0.04em"}}>{s.v}</div>
+                  <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(32px,4vw,48px)",color:"#1E8A9A",fontWeight:800,letterSpacing:"0.04em"}}>{s.v}</div>
                   <div>
-                    <div style={{fontSize:13,letterSpacing:"0.1em",textTransform:"uppercase",color:"#1A6B7A",opacity:0.9,marginBottom:2}}>{s.l}</div>
+                    <div style={{fontSize:15,letterSpacing:"0.08em",textTransform:"uppercase",color:"#0A4A58",opacity:1,marginBottom:2}}>{s.l}</div>
                     <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:15,color:"#444444"}}>{s.sub}</div>
                   </div>
                 </div>
@@ -450,7 +451,7 @@ function HomePage({setPage}){
       <div style={{background:"#1A7A8A",padding:"18px 0",overflow:"hidden",borderTop:"1px solid rgba(61,99,112,0.4)"}}>
         <div style={{display:"flex",animation:"marquee 36s linear infinite",whiteSpace:"nowrap"}}>
           {[...Array(10)].map((_,i)=>(
-            <span key={i} style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:17,color:"rgba(245,240,232,0.4)",padding:"0 52px",letterSpacing:"0.04em"}}>
+            <span key={i} style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:17,color:"rgba(255,255,255,0.7)",padding:"0 52px",letterSpacing:"0.04em"}}>
               Rhode Island · Boston · New York City · Miami · Restaurants · Hotels · Cafés · Sponsored Content · Photography
             </span>
           ))}
@@ -464,7 +465,7 @@ function HomePage({setPage}){
             <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",marginBottom:72,flexWrap:"wrap",gap:20}}>
               <div>
                 <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:18,color:"#0A5A6A",marginBottom:10,letterSpacing:"0.04em"}}>featured content</div>
-                <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(38px,5vw,62px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0,lineHeight:1.0}}>
+                <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(44px,5.5vw,68px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0,lineHeight:1.0}}>
                   Watch the<br/><em style={{color:"#1E8A9A"}}>work.</em>
                 </h2>
               </div>
@@ -492,7 +493,7 @@ function HomePage({setPage}){
                     }}>
                       <div style={{display:"flex",alignItems:"center",gap:7}}>
                         <div style={{width:22,height:22,borderRadius:"50%",background:"rgba(61,99,112,0.7)",border:"1px solid rgba(255,255,255,0.4)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:8,color:"#fff",fontWeight:600}}>F</div>
-                        <span style={{fontSize:9,color:"rgba(245,240,232,0.85)",letterSpacing:"0.08em"}}>@frvncesca</span>
+                        <span style={{fontSize:9,color:"rgba(255,255,255,1.0)",letterSpacing:"0.08em"}}>@frvncesca</span>
                       </div>
                       <div style={{display:"flex",justifyContent:"center"}}>
                         <div style={{width:44,height:44,borderRadius:"50%",border:"1.5px solid rgba(255,255,255,0.7)",background:"rgba(255,255,255,0.12)",backdropFilter:"blur(4px)",display:"flex",alignItems:"center",justifyContent:"center"}}>
@@ -500,7 +501,7 @@ function HomePage({setPage}){
                         </div>
                       </div>
                       <div>
-                        <div style={{fontFamily:"inherit",fontSize:8,color:"rgba(245,240,232,0.6)",letterSpacing:"0.22em",textTransform:"uppercase",marginBottom:6}}>{v.location}</div>
+                        <div style={{fontFamily:"inherit",fontSize:8,color:"rgba(255,255,255,0.85)",letterSpacing:"0.22em",textTransform:"uppercase",marginBottom:6}}>{v.location}</div>
                         <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"#1A6B7A",lineHeight:1.4}}>{v.title}</div>
                       </div>
                     </div>
@@ -522,7 +523,7 @@ function HomePage({setPage}){
         <div style={{maxWidth:1100,position:"relative",zIndex:1}}>
           {[
             {t:"Fresh food,",     s:{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(44px,8vw,106px)",color:"#1A6B7A",letterSpacing:"0.03em",opacity:0.95}},
-            {t:"coastal light,",  s:{fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:700,fontSize:"clamp(42px,7.5vw,100px)",color:"transparent",WebkitTextStroke:"1.5px rgba(200,216,220,0.4)",letterSpacing:"0.05em",textTransform:"uppercase",fontStyle:"normal"}},
+            {t:"coastal light,",  s:{fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:300,fontSize:"clamp(42px,7.5vw,100px)",color:"transparent",WebkitTextStroke:"2px rgba(255,255,255,0.6)",letterSpacing:"0.05em",textTransform:"uppercase",fontStyle:"normal"}},
             {t:"& content that",  s:{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(44px,8vw,106px)",color:"#1A6B7A",letterSpacing:"0.03em",opacity:0.95}},
             {t:"converts.",       s:{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(44px,8vw,106px)",color:"#C8B89A",letterSpacing:"0.03em"}},
           ].map((t,i)=>(
@@ -532,12 +533,12 @@ function HomePage({setPage}){
           ))}
           <Appear delay={0.5}>
             <div style={{display:"flex",alignItems:"center",gap:28,marginTop:56,flexWrap:"wrap"}}>
-              <button onClick={()=>setPage("Work With Me")} style={{padding:"14px 40px",background:"rgba(200,184,154,0.12)",border:"1px solid rgba(200,184,154,0.45)",color:"rgba(245,240,232,0.88)",fontSize:10,letterSpacing:"0.28em",textTransform:"uppercase",cursor:"pointer",transition:"all 0.4s",fontFamily:"inherit",backdropFilter:"blur(4px)"}}
+              <button onClick={()=>setPage("Work With Me")} style={{padding:"14px 40px",background:"rgba(200,184,154,0.12)",border:"1px solid rgba(200,184,154,0.45)",color:"rgba(255,255,255,0.92)",fontSize:10,letterSpacing:"0.28em",textTransform:"uppercase",cursor:"pointer",transition:"all 0.4s",fontFamily:"inherit",backdropFilter:"blur(4px)"}}
                 onMouseOver={e=>e.target.style.background="rgba(200,184,154,0.25)"}
                 onMouseOut={e=>e.target.style.background="rgba(200,184,154,0.12)"}>
                 Work With Me
               </button>
-              <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"rgba(245,240,232,0.3)"}}>Limited spots available each month</span>
+              <span style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"rgba(255,255,255,0.7)"}}>Limited spots available each month</span>
             </div>
           </Appear>
         </div>
@@ -551,7 +552,7 @@ function HomePage({setPage}){
           <Appear>
             <div style={{textAlign:"center",marginBottom:80}}>
               <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:18,color:"#0A5A6A",marginBottom:12,letterSpacing:"0.04em"}}>what i offer</div>
-              <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(36px,5vw,58px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0,lineHeight:1.05}}>
+              <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(42px,5.5vw,66px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0,lineHeight:1.05}}>
                 Four ways to work together.
               </h2>
             </div>
@@ -568,8 +569,8 @@ function HomePage({setPage}){
                   onMouseOver={e=>{e.currentTarget.style.background="#D6EDFD";e.currentTarget.style.borderTopColor="#1E8A9A";e.currentTarget.style.boxShadow="0 8px 40px rgba(28,47,56,0.08)";}}
                   onMouseOut={e=>{e.currentTarget.style.background="#C8E4FB";e.currentTarget.style.borderTopColor="transparent";e.currentTarget.style.boxShadow="none";}}>
                   <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"#A8874A",letterSpacing:"0.08em",marginBottom:10}}>{s.sub}</div>
-                  <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontSize:"clamp(19px,2.2vw,24px)",color:"#1A6B7A",fontWeight:800,marginBottom:18,letterSpacing:"0.04em",fontStyle:"normal"}}>{s.n}</div>
-                  <p style={{fontSize:17,color:"#222222",lineHeight:1.9,margin:0,letterSpacing:"0.01em"}}>{s.body}</p>
+                  <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontSize:"clamp(22px,2.5vw,28px)",color:"#1A6B7A",fontWeight:800,marginBottom:18,letterSpacing:"0.04em",fontStyle:"normal"}}>{s.n}</div>
+                  <p style={{fontSize:18,color:"#222222",lineHeight:1.9,margin:0,letterSpacing:"0.01em"}}>{s.body}</p>
                   <div style={{marginTop:24,fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:13,color:"rgba(61,99,112,0.5)",letterSpacing:"0.06em"}}>{s.roman}</div>
                 </div>
               </Appear>
@@ -594,7 +595,7 @@ function HomePage({setPage}){
           <Appear>
             <div style={{textAlign:"center",marginBottom:60}}>
               <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:18,color:"#0A5A6A",marginBottom:10,letterSpacing:"0.04em"}}>in good company</div>
-              <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(30px,4vw,50px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0}}>
+              <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(36px,4.5vw,58px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0}}>
                 Brands I've Worked With
               </h2>
             </div>
@@ -618,8 +619,8 @@ function HomePage({setPage}){
         <div style={{position:"absolute",width:"60vw",height:"60vw",maxWidth:700,maxHeight:700,borderRadius:"50%",background:"radial-gradient(circle,rgba(61,99,112,0.28) 0%,transparent 70%)",top:"50%",left:"55%",transform:"translate(-50%,-50%)",pointerEvents:"none"}}/>
         <Appear style={{position:"relative",zIndex:1,maxWidth:680}}>
           <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"rgba(255,255,255,0.8)",marginBottom:20,letterSpacing:"0.04em"}}>ready when you are</div>
-          <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(32px,5.5vw,68px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:"0 0 22px",lineHeight:1.1}}>
-            Let's make something<br/><em style={{color:"#C8B89A"}}>worth remembering.</em>
+          <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(38px,6vw,74px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:"0 0 22px",lineHeight:1.1}}>
+            Let's make something<br/><em style={{color:"#ffffff"}}>worth remembering.</em>
           </h2>
           <p style={{fontSize:17,color:"rgba(255,255,255,0.75)",maxWidth:420,margin:"0 0 50px",lineHeight:1.9,letterSpacing:"0.01em"}}>
             Limited collaboration spots each month. Restaurants, hotels, cafés, and lifestyle brands welcome.
@@ -647,7 +648,7 @@ function AboutPage({setPage}){
         <Appear style={{position:"relative",zIndex:1}}>
           <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"rgba(255,255,255,0.75)",marginBottom:16,letterSpacing:"0.04em"}}>the creator</div>
           <h1 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(48px,8vw,92px)",color:"#1A6B7A",letterSpacing:"0.03em",lineHeight:1.0,margin:0}}>
-            Hi — I'm<br/><em style={{color:"#6BB8C4"}}>Francesca Grace.</em>
+            Hi — I'm<br/><em style={{color:"#ffffff"}}>Francesca Grace.</em>
           </h1>
         </Appear>
       </div>
@@ -660,9 +661,9 @@ function AboutPage({setPage}){
               <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(26px,3.5vw,40px)",color:"#1A6B7A",lineHeight:1.15,letterSpacing:"0.04em",marginBottom:28}}>
                 The story behind<br/>the content.
               </h2>
-              <p style={{fontSize:18,color:"#222222",lineHeight:1.95,opacity:0.82,marginBottom:20,letterSpacing:"0.01em"}}>Born and raised in Rhode Island, I started documenting my obsession with great food and beautiful places in 2021. What began as a personal passion became a community of highly engaged followers who trust my recommendations — and act on them.</p>
-              <p style={{fontSize:18,color:"#222222",lineHeight:1.95,opacity:0.82,marginBottom:20,letterSpacing:"0.01em"}}>Every video I create is cinematic, honest, and crafted to make the viewer feel like they're already there. I only partner with places I genuinely believe in — which is exactly why my audience responds the way they do.</p>
-              <p style={{fontSize:18,color:"#222222",lineHeight:1.95,opacity:0.82,marginBottom:40,letterSpacing:"0.01em"}}>Whether I'm shooting a hidden waterfront restaurant in Newport, a boutique hotel in Boston, or a café in the West Village, I bring the same eye for light, detail, and atmosphere that makes people want to be there.</p>
+              <p style={{fontSize:19,color:"#222222",lineHeight:1.95,opacity:0.82,marginBottom:20,letterSpacing:"0.01em"}}>Born and raised in Rhode Island, I started documenting my obsession with great food and beautiful places in 2021. What began as a personal passion became a community of highly engaged followers who trust my recommendations — and act on them.</p>
+              <p style={{fontSize:19,color:"#222222",lineHeight:1.95,opacity:0.82,marginBottom:20,letterSpacing:"0.01em"}}>Every video I create is cinematic, honest, and crafted to make the viewer feel like they're already there. I only partner with places I genuinely believe in — which is exactly why my audience responds the way they do.</p>
+              <p style={{fontSize:19,color:"#222222",lineHeight:1.95,opacity:0.82,marginBottom:40,letterSpacing:"0.01em"}}>Whether I'm shooting a hidden waterfront restaurant in Newport, a boutique hotel in Boston, or a café in the West Village, I bring the same eye for light, detail, and atmosphere that makes people want to be there.</p>
               <button onClick={()=>setPage("Work With Me")} style={{padding:"13px 40px",background:"#1E8A9A",color:"#1A6B7A",border:"none",fontSize:10,letterSpacing:"0.28em",textTransform:"uppercase",cursor:"pointer",transition:"background 0.3s",fontFamily:"inherit",boxShadow:"0 6px 28px rgba(61,99,112,0.28)"}}
                 onMouseOver={e=>e.target.style.background="#145E6E"}
                 onMouseOut={e=>e.target.style.background="#1E8A9A"}>
@@ -802,7 +803,7 @@ function AnalyticsPage(){
               <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"rgba(107,98,88,0.1)",marginBottom:36}}>
                 {[{v:tt.followers,l:"Followers"},{v:tt.likes,l:"Total Likes"},{v:tt.views,l:tt.viewsLabel}].map((m,i)=>(
                   <div key={i} style={{background:"#C8E4FB",padding:"22px 18px",textAlign:"center"}}>
-                    <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(24px,4vw,38px)",color:"#1E8A9A",fontWeight:800}}>{m.v}</div>
+                    <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(28px,4.5vw,44px)",color:"#1E8A9A",fontWeight:800}}>{m.v}</div>
                     <div style={{fontSize:12,color:"#444444",letterSpacing:"0.14em",textTransform:"uppercase",marginTop:5}}>{m.l}</div>
                   </div>
                 ))}
@@ -824,7 +825,7 @@ function AnalyticsPage(){
                 </div>
               </div>
               <div style={{marginTop:28,padding:"16px 20px",background:"rgba(61,99,112,0.06)",borderLeft:"3px solid #1E8A9A"}}>
-                <p style={{fontSize:17,color:"#222222",lineHeight:1.9,margin:0}}><strong style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"#1A6B7A"}}>Key insight:</strong> My core TikTok audience is women aged 25–34 — prime dining age, high disposable income, and highly influenced by food content. These are the people making Friday night dinner reservations.</p>
+                <p style={{fontSize:18,color:"#222222",lineHeight:1.9,margin:0}}><strong style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"#1A6B7A"}}>Key insight:</strong> My core TikTok audience is women aged 25–34 — prime dining age, high disposable income, and highly influenced by food content. These are the people making Friday night dinner reservations.</p>
               </div>
             </div>
           </div>
@@ -844,7 +845,7 @@ function AnalyticsPage(){
               <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"rgba(107,98,88,0.1)",marginBottom:36}}>
                 {[{v:ig.followers,l:"Followers"},{v:ig.views,l:ig.viewsLabel},{v:`${ig.female}%`,l:"Female Audience"}].map((m,i)=>(
                   <div key={i} style={{background:"#C8E4FB",padding:"22px 18px",textAlign:"center"}}>
-                    <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(24px,4vw,38px)",color:"#1E8A9A",fontWeight:800}}>{m.v}</div>
+                    <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(28px,4.5vw,44px)",color:"#1E8A9A",fontWeight:800}}>{m.v}</div>
                     <div style={{fontSize:12,color:"#444444",letterSpacing:"0.14em",textTransform:"uppercase",marginTop:5}}>{m.l}</div>
                   </div>
                 ))}
@@ -866,7 +867,7 @@ function AnalyticsPage(){
                 </div>
               </div>
               <div style={{marginTop:28,padding:"16px 20px",background:"rgba(143,163,168,0.08)",borderLeft:"3px solid #6BB8C4"}}>
-                <p style={{fontSize:17,color:"#222222",lineHeight:1.9,margin:0}}><strong style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"#1A6B7A"}}>Key insight:</strong> Instagram skews younger — 18–24 at 47.5% — with 83.2% female. Ideal for lifestyle, dining, and hotel brands targeting millennial and Gen-Z women.</p>
+                <p style={{fontSize:18,color:"#222222",lineHeight:1.9,margin:0}}><strong style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"#1A6B7A"}}>Key insight:</strong> Instagram skews younger — 18–24 at 47.5% — with 83.2% female. Ideal for lifestyle, dining, and hotel brands targeting millennial and Gen-Z women.</p>
               </div>
             </div>
           </div>
@@ -906,7 +907,7 @@ function WorkWithMePage({setPage}){
         <Appear style={{position:"relative",zIndex:1}}>
           <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:16,color:"rgba(255,255,255,0.8)",marginBottom:16}}>partnerships</div>
           <h1 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(42px,7vw,82px)",color:"#1A6B7A",letterSpacing:"0.03em",lineHeight:1.0,margin:"0 0 18px"}}>Work With Me</h1>
-          <p style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",color:"rgba(245,240,232,0.6)",fontSize:17,maxWidth:520,margin:0,lineHeight:1.85}}>I work with restaurants, hotels, cafés, and local businesses to create content that drives real foot traffic, bookings, and brand love.</p>
+          <p style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",color:"#ffffff",fontSize:19,maxWidth:520,margin:0,lineHeight:1.85}}>I work with restaurants, hotels, cafés, and local businesses to create content that drives real foot traffic, bookings, and brand love.</p>
         </Appear>
       </div>
 
@@ -921,8 +922,8 @@ function WorkWithMePage({setPage}){
                 onMouseOver={e=>{e.currentTarget.style.boxShadow="0 10px 44px rgba(28,47,56,0.1)";e.currentTarget.style.borderTopColor="#1E8A9A";}}
                 onMouseOut={e=>{e.currentTarget.style.boxShadow="none";e.currentTarget.style.borderTopColor="rgba(61,99,112,0.2)";}}>
                 <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:13,color:"#A8874A",marginBottom:8,letterSpacing:"0.06em"}}>{s.sub}</div>
-                <h3 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(19px,2.3vw,24px)",color:"#1A6B7A",fontWeight:800,marginBottom:16,letterSpacing:"0.04em"}}>{s.n}</h3>
-                <p style={{fontSize:17,color:"#222222",lineHeight:1.9,margin:0,letterSpacing:"0.01em"}}>{s.body}</p>
+                <h3 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:"clamp(22px,2.5vw,28px)",color:"#1A6B7A",fontWeight:800,marginBottom:16,letterSpacing:"0.04em"}}>{s.n}</h3>
+                <p style={{fontSize:18,color:"#222222",lineHeight:1.9,margin:0,letterSpacing:"0.01em"}}>{s.body}</p>
                 <div style={{marginTop:20,fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:22,color:"rgba(107,98,88,0.2)"}}>{s.roman}</div>
               </div>
             </Appear>
@@ -932,7 +933,7 @@ function WorkWithMePage({setPage}){
         <Appear>
           <div style={{borderTop:"1px solid rgba(107,98,88,0.15)",paddingTop:70,marginBottom:52}}>
             <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:18,color:"#0A5A6A",marginBottom:14,letterSpacing:"0.04em"}}>the process</div>
-            <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(28px,4vw,46px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0,lineHeight:1.1}}>
+            <h2 style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontWeight:800,fontStyle:"normal",fontSize:"clamp(34px,4.5vw,54px)",color:"#1A6B7A",letterSpacing:"0.04em",margin:0,lineHeight:1.1}}>
               Simple. Seamless. <em style={{color:"#1E8A9A"}}>Stress-free.</em>
             </h2>
           </div>
@@ -985,49 +986,8 @@ function WorkWithMePage({setPage}){
 //   CONTACT PAGE
 // ══════════════════════════════════════════════════════════════
 function ContactPage(){
-  const [form,setForm]=useState({name:"",email:"",business:"",type:"",message:""});
-  const [sent,setSent]=useState(false);
-  const [sending,setSending]=useState(false);
-  const handleSubmit=async()=>{
-    if(!form.name||!form.email||!form.message) return;
-    setSending(true);
-    try{
-      const res=await fetch("https://formspree.io/frvncescagrace@gmail.com",{
-        method:"POST",
-        headers:{"Content-Type":"application/json","Accept":"application/json"},
-        body:JSON.stringify({
-          name:form.name,
-          email:form.email,
-          business:form.business,
-          service:form.type,
-          message:form.message,
-          _replyto:form.email,
-          _subject:`New inquiry from ${form.name} — Francesca Grace`,
-          _cc:"frvncescagrace@gmail.com",
-        }),
-      });
-      if(res.ok){setSent(true);}
-      else{
-        // Fallback: open mailto
-        window.location.href=`mailto:frvncescagrace@gmail.com?subject=New inquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(`Name: ${form.name}
-Email: ${form.email}
-Business: ${form.business}
-Service: ${form.type}
-
-${form.message}`)}`;
-        setSent(true);
-      }
-    }catch(e){
-      window.location.href=`mailto:frvncescagrace@gmail.com?subject=New inquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(`Name: ${form.name}
-Email: ${form.email}
-Business: ${form.business}
-Service: ${form.type}
-
-${form.message}`)}`;
-      setSent(true);
-    }
-    setSending(false);
-  };
+  const [state, handleSubmit] = useForm("mwvzdplg");
+  const [type, setType] = useState("");
   const inp={
     width:"100%",background:"#C8E4FB",border:"1px solid rgba(107,98,88,0.18)",
     color:"#1A6B7A",padding:"14px 16px",fontSize:15,outline:"none",
@@ -1046,10 +1006,10 @@ ${form.message}`)}`;
 
       <div style={{maxWidth:680,padding:"clamp(50px,6vw,80px) clamp(20px,5vw,80px) clamp(60px,8vw,120px) clamp(20px,5vw,160px)"}}>
         <Appear>
-          <p style={{fontSize:18,color:"#222222",lineHeight:1.95,marginBottom:52,opacity:0.82,letterSpacing:"0.01em"}}>Tell me about your business and what you're hoping to achieve. I reply to every inquiry personally within 48 hours.</p>
+          <p style={{fontSize:19,color:"#222222",lineHeight:1.95,marginBottom:52,opacity:0.82,letterSpacing:"0.01em"}}>Tell me about your business and what you're hoping to achieve. I reply to every inquiry personally within 48 hours.</p>
         </Appear>
 
-        {sent?(
+        {state.succeeded?(
           <Appear>
             <div style={{textAlign:"center",padding:"64px 24px",border:"1px solid rgba(107,98,88,0.15)",background:"#C8E4FB"}}>
               <div style={{textTransform:"uppercase",fontFamily:"'Barlow Condensed','Arial Narrow',sans-serif",fontStyle:"normal",fontSize:32,color:"#1E8A9A",marginBottom:18}}>✦</div>
@@ -1059,41 +1019,49 @@ ${form.message}`)}`;
           </Appear>
         ):(
           <Appear delay={0.1}>
-            <div style={{display:"flex",flexDirection:"column",gap:22}}>
-              {[
-                {k:"name",    l:"Your Name",     t:"text",  p:"Jane Smith"},
-                {k:"email",   l:"Email Address", t:"email", p:"jane@yourbusiness.com"},
-                {k:"business",l:"Business Name", t:"text",  p:"The Blue Door Café"},
-              ].map(f=>(
-                <div key={f.k}>
-                  <label style={{display:"block",fontSize:12,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>{f.l}</label>
-                  <input type={f.t} placeholder={f.p} value={form[f.k]} onChange={e=>setForm({...form,[f.k]:e.target.value})}
-                    style={inp} onFocus={e=>e.target.style.borderColor="#1E8A9A"} onBlur={e=>e.target.style.borderColor="rgba(107,98,88,0.18)"}/>
-                </div>
-              ))}
+          <form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",gap:22}}>
               <div>
-                <label style={{display:"block",fontSize:12,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>I'm Interested In</label>
-                <select value={form.type} onChange={e=>setForm({...form,type:e.target.value})}
-                  style={{...inp,cursor:"pointer",color:form.type?"#1A6B7A":"rgba(107,98,88,0.5)"}}>
-                  <option value="" disabled>Select a service…</option>
-                  <option>Sponsored Content</option><option>Photography</option>
-                  <option>Consulting</option><option>Monthly Retainer</option>
+                <label htmlFor="name" style={{display:"block",fontSize:13,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>Your Name</label>
+                <input id="name" type="text" name="name" placeholder="Jane Smith" required
+                  style={inp} onFocus={e=>e.target.style.borderColor="#1E8A9A"} onBlur={e=>e.target.style.borderColor="rgba(107,98,88,0.18)"}/>
+                <ValidationError field="name" prefix="Name" errors={state.errors} style={{color:"red",fontSize:13,marginTop:4}}/>
+              </div>
+              <div>
+                <label htmlFor="email" style={{display:"block",fontSize:13,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>Email Address</label>
+                <input id="email" type="email" name="email" placeholder="jane@yourbusiness.com" required
+                  style={inp} onFocus={e=>e.target.style.borderColor="#1E8A9A"} onBlur={e=>e.target.style.borderColor="rgba(107,98,88,0.18)"}/>
+                <ValidationError field="email" prefix="Email" errors={state.errors} style={{color:"red",fontSize:13,marginTop:4}}/>
+              </div>
+              <div>
+                <label htmlFor="business" style={{display:"block",fontSize:13,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>Business Name</label>
+                <input id="business" type="text" name="business" placeholder="The Blue Door Café"
+                  style={inp} onFocus={e=>e.target.style.borderColor="#1E8A9A"} onBlur={e=>e.target.style.borderColor="rgba(107,98,88,0.18)"}/>
+              </div>
+              <div>
+                <label htmlFor="service" style={{display:"block",fontSize:13,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>I'm Interested In</label>
+                <select id="service" name="service" value={type} onChange={e=>setType(e.target.value)}
+                  style={{...inp,cursor:"pointer",color:type?"#1A6B7A":"rgba(107,98,88,0.5)"}}>
+                  <option value="">Select a service…</option>
+                  <option>Sponsored Content</option>
+                  <option>Photography</option>
+                  <option>Consulting</option>
+                  <option>Monthly Retainer</option>
                   <option>Not sure yet — let's talk</option>
                 </select>
               </div>
               <div>
-                <label style={{display:"block",fontSize:12,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>Tell Me More</label>
-                <textarea placeholder="A bit about your business and what you're hoping to achieve…" rows={5}
-                  value={form.message} onChange={e=>setForm({...form,message:e.target.value})}
+                <label htmlFor="message" style={{display:"block",fontSize:13,color:"#0A5A6A",letterSpacing:"0.2em",textTransform:"uppercase",marginBottom:9,fontWeight:700}}>Tell Me More</label>
+                <textarea id="message" name="message" placeholder="A bit about your business and what you're hoping to achieve…" rows={5} required
                   style={{...inp,resize:"vertical"}} onFocus={e=>e.target.style.borderColor="#1E8A9A"} onBlur={e=>e.target.style.borderColor="rgba(107,98,88,0.18)"}/>
+                <ValidationError field="message" prefix="Message" errors={state.errors} style={{color:"red",fontSize:13,marginTop:4}}/>
               </div>
-              <button onClick={handleSubmit}
-                style={{padding:"15px 44px",background:"#1E8A9A",color:"#1A6B7A",border:"none",fontSize:10,letterSpacing:"0.28em",textTransform:"uppercase",cursor:"pointer",alignSelf:"flex-start",transition:"background 0.3s",fontFamily:"inherit",boxShadow:"0 6px 28px rgba(61,99,112,0.28)"}}
-                onMouseOver={e=>e.target.style.background="#145E6E"}
-                onMouseOut={e=>e.target.style.background="#1E8A9A"}>
-                {sending?"Sending...":"Send Inquiry"}
+              <button type="submit" disabled={state.submitting}
+                style={{padding:"15px 44px",background:state.submitting?"#6BB8C4":"#1A7A8A",color:"#ffffff",border:"none",fontSize:13,letterSpacing:"0.22em",textTransform:"uppercase",cursor:state.submitting?"not-allowed":"pointer",alignSelf:"flex-start",fontFamily:"inherit",fontWeight:700,boxShadow:"0 6px 28px rgba(26,107,122,0.28)",transition:"background 0.3s"}}
+                onMouseOver={e=>{if(!state.submitting)e.target.style.background="#145E6E";}}
+                onMouseOut={e=>{if(!state.submitting)e.target.style.background="#1A7A8A";}}>
+                {state.submitting?"Sending…":"Send Inquiry"}
               </button>
-            </div>
+            </form>
           </Appear>
         )}
 
@@ -1214,7 +1182,7 @@ export default function App(){
             background:"none",border:"none",cursor:"pointer",
             textAlign:"left",padding:0,
           }}>
-            <div style={{fontFamily:"'Great Vibes',cursive",fontWeight:400,fontSize:22,color:isHero?"rgba(245,240,232,0.95)":"#1A6B7A",letterSpacing:"0.02em",lineHeight:1.2,transition:"color 0.4s"}}>
+            <div style={{fontFamily:"'Great Vibes',cursive",fontWeight:400,fontSize:22,color:isHero?"rgba(255,255,255,1.0)":"#1A6B7A",letterSpacing:"0.02em",lineHeight:1.2,transition:"color 0.4s"}}>
               Francesca Grace
             </div>
           </button>
@@ -1271,7 +1239,7 @@ export default function App(){
         {[0,1,2].map(i=>(
           <div key={i} style={{
             width:22,height:1.5,
-            background:isHero&&!menuOpen?"rgba(245,240,232,0.8)":"#1A6B7A",
+            background:isHero&&!menuOpen?"rgba(255,255,255,1.0)":"#1A6B7A",
             transition:"all 0.28s",
             transform:menuOpen&&i===0?"rotate(45deg) translate(4.5px,4.5px)":menuOpen&&i===2?"rotate(-45deg) translate(4.5px,-4.5px)":"none",
             opacity:menuOpen&&i===1?0:1,
@@ -1282,7 +1250,7 @@ export default function App(){
       {/* ── FULL SCREEN MENU OVERLAY ─────────────────────────── */}
       <div style={{
         position:"fixed",inset:0,zIndex:550,
-        background:"rgba(245,240,232,0.98)",
+        background:"rgba(255,255,255,1.0)",
         display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:8,
         opacity:menuOpen?1:0,pointerEvents:menuOpen?"all":"none",
         transition:"opacity 0.4s cubic-bezier(.16,1,.3,1)",
@@ -1319,30 +1287,31 @@ export default function App(){
         <div style={{maxWidth:1000,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:32,marginBottom:48,paddingBottom:40,borderBottom:"1px solid rgba(61,99,112,0.2)"}}>
           <div>
             <div style={{fontFamily:"'Great Vibes',cursive",fontWeight:400,fontSize:28,color:"#D6EDFD",marginBottom:8}}>Francesca Grace</div>
-            <div style={{fontSize:9,color:"rgba(245,240,232,0.3)",letterSpacing:"0.22em",textTransform:"uppercase",lineHeight:1.8}}>
+            <div style={{fontSize:9,color:"rgba(255,255,255,0.55)",letterSpacing:"0.22em",textTransform:"uppercase",lineHeight:1.8}}>
               Food &amp; Travel Creator<br/>Rhode Island · Boston · New York City · Miami
             </div>
           </div>
           <div style={{display:"flex",gap:16,flexWrap:"wrap"}}>
             {NAV_LINKS.map(l=>(
-              <button key={l} onClick={()=>setPage(l)} style={{background:"none",border:"none",cursor:"pointer",fontSize:9,letterSpacing:"0.2em",textTransform:"uppercase",color:"rgba(245,240,232,0.3)",transition:"color 0.2s",fontFamily:"inherit"}}
+              <button key={l} onClick={()=>setPage(l)} style={{background:"none",border:"none",cursor:"pointer",fontSize:9,letterSpacing:"0.2em",textTransform:"uppercase",color:"rgba(255,255,255,0.55)",transition:"color 0.2s",fontFamily:"inherit"}}
                 onMouseOver={e=>e.target.style.color="#6BB8C4"}
-                onMouseOut={e=>e.target.style.color="rgba(245,240,232,0.3)"}>{l}</button>
+                onMouseOut={e=>e.target.style.color="rgba(255,255,255,0.6)"}>{l}</button>
             ))}
           </div>
           <div style={{display:"flex",gap:20}}>
             {[{l:"TikTok",h:"https://www.tiktok.com/@frvncesca"},{l:"Instagram",h:"https://www.instagram.com/frvncescagracee"},{l:"Email",h:"mailto:frvncescagrace@gmail.com"}].map(s=>(
-              <a key={s.l} href={s.h} target="_blank" rel="noopener noreferrer" style={{fontSize:9,color:"rgba(245,240,232,0.3)",letterSpacing:"0.2em",textTransform:"uppercase",textDecoration:"none",transition:"color 0.2s",fontFamily:"inherit"}}
+              <a key={s.l} href={s.h} target="_blank" rel="noopener noreferrer" style={{fontSize:9,color:"rgba(255,255,255,0.55)",letterSpacing:"0.2em",textTransform:"uppercase",textDecoration:"none",transition:"color 0.2s",fontFamily:"inherit"}}
                 onMouseOver={e=>e.target.style.color="#6BB8C4"}
-                onMouseOut={e=>e.target.style.color="rgba(245,240,232,0.3)"}>{s.l}</a>
+                onMouseOut={e=>e.target.style.color="rgba(255,255,255,0.6)"}>{s.l}</a>
             ))}
           </div>
         </div>
         <div style={{maxWidth:1000,margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}>
-          <div style={{fontSize:10,color:"rgba(245,240,232,0.18)",letterSpacing:"0.1em"}}>© 2025 Francesca Grace. All rights reserved.</div>
-          <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:12,color:"rgba(245,240,232,0.18)",letterSpacing:"0.06em"}}>Rhode Island · Est. 2021</div>
+          <div style={{fontSize:10,color:"rgba(255,255,255,0.9)",letterSpacing:"0.1em",fontSize:13}}>© 2025 Francesca Grace. All rights reserved.</div>
+          <div style={{fontFamily:"'Cormorant Garamond',Georgia,serif",fontStyle:"italic",fontSize:12,color:"rgba(255,255,255,0.9)",letterSpacing:"0.06em",fontSize:14}}>Rhode Island · Est. 2021</div>
         </div>
       </footer>
     </div>
   );
 }
+
